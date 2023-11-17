@@ -42,17 +42,22 @@ namespace BankAppYieldReturn
         //}
 
 
-        public IEnumerable<decimal> GenereerSaldo()
+        public decimal[] GenereerSaldo()
         {
+            decimal[] saldoNaElkeTransactie = new decimal[_aantalTransacties];
             decimal lopendSaldo = 0;
+            int index = 0;
+
             foreach (var transactie in _transacties)
             {
-                if (transactie == null)
+                if (transactie == null || index >= _aantalTransacties)
                     break;
 
                 lopendSaldo += transactie.Bedrag;
-                yield return lopendSaldo;
+                saldoNaElkeTransactie[index++] = lopendSaldo;
             }
+
+            return saldoNaElkeTransactie;
         }
 
 
