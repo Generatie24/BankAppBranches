@@ -28,15 +28,13 @@ namespace BankAppYieldReturn
                 {
                     var transactie = rekening.Transacties[transactieIndex];
 
-                    string datum = transactie.Datum.ToShortDateString().PadRight(vasteLengte); // Gebruik ToShortDateString() voor een kortere datum
-                    string bedrag = transactie.Bedrag.ToString("C").PadLeft(vasteLengte); // "C" voor valutaformattering
+                    string datum = transactie.Datum.ToShortDateString().PadRight(vasteLengte); 
+                    string bedrag = transactie.Bedrag.ToString("C").PadLeft(vasteLengte);
                     string omschrijving = transactie.Omschrijving.PadRight(vasteLengte);
                     string saldomschrijving = "Saldo na transactie:".PadRight(vasteLengte);
-                    string saldoTekst = saldo.ToString("C").PadLeft(vasteLengte); // "C" voor valutaformattering
-
+                    string saldoTekst = saldo.ToString("C").PadLeft(vasteLengte);
 
                     Console.WriteLine($"{datum} {bedrag} {omschrijving} {saldoTekst} {saldomschrijving} {saldoTekst}");
-                    //Console.WriteLine($"{transactie.Datum} {transactie.Bedrag} {transactie.Omschrijving} Saldo na transactie:..... {saldo}");
 
                 }
                 else
