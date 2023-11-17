@@ -35,7 +35,7 @@ namespace BankAppYieldReturn
                     string saldoTekst = saldo.ToString("C").PadLeft(vasteLengte); // "C" voor valutaformattering
 
 
-                    Console.WriteLine($"{datum} {bedrag} {omschrijving} {saldoTekst} {saldomschrijving} {saldo}");
+                    Console.WriteLine($"{datum} {bedrag} {omschrijving} {saldoTekst} {saldomschrijving} {saldoTekst}");
                     //Console.WriteLine($"{transactie.Datum} {transactie.Bedrag} {transactie.Omschrijving} Saldo na transactie:..... {saldo}");
 
                 }
