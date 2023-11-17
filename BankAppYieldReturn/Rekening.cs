@@ -17,15 +17,15 @@ namespace BankAppYieldReturn
         }
 
 
-        private int _aantalTransacties = 0;
+        private int i = 0; // aantal transacties
         public Rekening(string rekeningnummer)
         {
             Rekeningnummer = rekeningnummer;
         }
         public void VoerTransactieUit(decimal bedrag, string omschrijving)
         {
-            _transacties[_aantalTransacties] = new Transactie(bedrag, DateTime.Now, omschrijving);
-            _aantalTransacties++;
+            _transacties[i] = new Transactie(bedrag, DateTime.Now, omschrijving);
+            i++;
 
             Saldo += bedrag;
         }
@@ -44,20 +44,20 @@ namespace BankAppYieldReturn
 
         public decimal[] GenereerSaldo()
         {
-            decimal[] saldoNaElkeTransactie = new decimal[_aantalTransacties];
-            decimal lopendSaldo = 0;
+            decimal[] saldoNaTransactie = new decimal[i];
+            decimal Saldo = 0;
             int index = 0;
 
             foreach (var transactie in _transacties)
             {
-                if (transactie == null || index >= _aantalTransacties)
+                if (transactie == null || index >= i)
                     break;
 
-                lopendSaldo += transactie.Bedrag;
-                saldoNaElkeTransactie[index++] = lopendSaldo;
+                Saldo += transactie.Bedrag;
+                saldoNaTransactie[index++] = Saldo;
             }
 
-            return saldoNaElkeTransactie;
+            return saldoNaTransactie;
         }
 
 
