@@ -17,15 +17,15 @@ namespace BankAppYieldReturn
         }
 
 
-        private int _aantalTransacties = 0;
+        private int i = 0;
         public Rekening(string rekeningnummer)
         {
-            Rekeningnummer = rekeningnummer;
+            Rekeningnummer = rekeningnummer; 
         }
         public void VoerTransactieUit(decimal bedrag, string omschrijving)
         {
-            _transacties[_aantalTransacties] = new Transactie(bedrag, DateTime.Now, omschrijving);
-            _aantalTransacties++;
+            _transacties[i] = new Transactie(bedrag, DateTime.Now, omschrijving);
+            i++;
 
             Saldo += bedrag;
         }

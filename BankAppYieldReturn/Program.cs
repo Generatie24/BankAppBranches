@@ -20,13 +20,13 @@ namespace BankAppYieldReturn
             rekening.VoerTransactieUit(500.00m, "Storting");
             rekening.VoerTransactieUit(-600.00m, "Geld opname");
 
-            int transactieIndex = 0;
+            int i = 0;
 
             foreach (var saldo in rekening.GenereerSaldo())
             {
-                if (transactieIndex < rekening.Transacties.Length && rekening.Transacties[transactieIndex] != null)
+                if (i < rekening.Transacties.Length && rekening.Transacties[i] != null)
                 {
-                    var transactie = rekening.Transacties[transactieIndex];
+                    var transactie = rekening.Transacties[i];
 
                     string datum = transactie.Datum.ToShortDateString().PadRight(vasteLengte); 
                     string bedrag = transactie.Bedrag.ToString("C").PadLeft(vasteLengte);
@@ -42,7 +42,7 @@ namespace BankAppYieldReturn
                     break;
                 }
 
-                transactieIndex++;
+                i++;
             }
 
         }
