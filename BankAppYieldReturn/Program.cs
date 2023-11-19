@@ -12,6 +12,8 @@ namespace BankAppYieldReturn
         {
             Console.OutputEncoding = Encoding.UTF8;
             int vasteLengte = 20;
+
+            Console.WriteLine("Met yield return zonder static class");
             Rekening rekening = new Rekening("123-456789-01");
 
             rekening.VoerTransactieUit(5000.00m, "Storting");
