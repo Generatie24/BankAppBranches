@@ -34,14 +34,8 @@ namespace BankAppYieldReturn
 
             decimal[] saldoArray = BerekenSaldo();
 
-            string datumHeader = "Datum van transactie".PadRight(vasteLengte);
-            string bedragHeader = "Bedrag".PadLeft(vasteLengte);
-            string spatie = "     ".PadLeft(5);
-            string omschrijvingHeader = "Omschrijving".PadRight(vasteLengte);
-            string saldoTekstHeader = "Saldo".PadLeft(vasteLengte);
-
-            Console.WriteLine($"{datumHeader} {bedragHeader} {spatie} {omschrijvingHeader} {saldoTekstHeader}");
-
+            
+            Console.WriteLine(Headers.ShowHeadre());
             foreach (decimal saldo in saldoArray)
             {
                 if (i < _transacties.Length && _transacties[i] != null)
@@ -51,10 +45,10 @@ namespace BankAppYieldReturn
                     string datum = transactie.Datum.ToShortDateString().PadRight(vasteLengte);
                     string bedrag = transactie.Bedrag.ToString("C").PadLeft(vasteLengte);
                    
-
                     string omschrijving = transactie.Omschrijving.PadRight(vasteLengte);
                     string saldoTekst = saldo.ToString("C").PadLeft(vasteLengte);
-                    Console.WriteLine($"{datum} {bedrag} {spatie} {omschrijving} {saldoTekst}");
+
+                    Console.WriteLine($"{datum} {bedrag} {"".PadLeft(5)} {omschrijving} {saldoTekst}");
                 }
                 else
                 {
