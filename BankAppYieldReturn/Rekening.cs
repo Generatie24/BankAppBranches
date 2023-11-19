@@ -23,32 +23,26 @@ namespace BankAppYieldReturn
             i++;
 
             Saldo += bedrag;
-            
+
         }
 
         public void ToonTransacties()
         {
             int i = 0;
-            int vasteLengte = 20;
             Console.WriteLine("Zonder Yield");
 
             decimal[] saldoArray = BerekenSaldo();
-
-            
+            decimal total = 0;
             Console.WriteLine(Headers.ShowHeader());
             foreach (decimal saldo in saldoArray)
             {
                 if (i < _transacties.Length && _transacties[i] != null)
                 {
                     Transactie transactie = _transacties[i];
-                   
-                    string datum = transactie.Datum.ToShortDateString().PadRight(vasteLengte);
-                    string bedrag = transactie.Bedrag.ToString("C").PadLeft(vasteLengte);
-                   
-                    string omschrijving = transactie.Omschrijving.PadRight(vasteLengte);
-                    string saldoTekst = saldo.ToString("C").PadLeft(vasteLengte);
+                    var showdetail = Headers.ShowDetail(transactie, saldo);
 
-                    Console.WriteLine($"{datum} {bedrag} {"".PadLeft(5)} {omschrijving} {saldoTekst}");
+                    Console.WriteLine(showdetail);
+                    total = saldo;
                 }
                 else
                 {
@@ -57,6 +51,13 @@ namespace BankAppYieldReturn
 
                 i++;
             }
+            Console.WriteLine();
+            Console.WriteLine(Headers.ShowFooter(53, total));
+
+        }
+
+        private static void ShowDetail()
+        {
             
         }
 
@@ -72,13 +73,13 @@ namespace BankAppYieldReturn
                 {
                     break;
                 }
-                   
+
                 Saldo += transactie.Bedrag;
                 saldoNaTransactie[index++] = Saldo;
             }
-           
+
             return saldoNaTransactie;
-            
+
         }
     }
 }
