@@ -10,6 +10,7 @@ namespace BankAppYieldReturn
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Zonder yield return en zonder Static class");
             Console.OutputEncoding = Encoding.UTF8;
 
             Rekening rekening = new Rekening("123-456789-01");
