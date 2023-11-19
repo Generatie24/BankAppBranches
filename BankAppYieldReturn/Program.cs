@@ -12,6 +12,8 @@ namespace BankAppYieldReturn
         {
             Console.OutputEncoding = Encoding.UTF8;
 
+            Console.WriteLine("With static class");
+            Console.WriteLine();
             Rekening rekening = new Rekening("123-456789-01");
 
             rekening.VoerTransactieUit(5000.00m, "Storting");
