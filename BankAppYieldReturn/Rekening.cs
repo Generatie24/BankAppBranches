@@ -35,7 +35,7 @@ namespace BankAppYieldReturn
             decimal[] saldoArray = BerekenSaldo();
 
             
-            Console.WriteLine(Headers.ShowHeadre());
+            Console.WriteLine(Headers.ShowHeader());
             foreach (decimal saldo in saldoArray)
             {
                 if (i < _transacties.Length && _transacties[i] != null)

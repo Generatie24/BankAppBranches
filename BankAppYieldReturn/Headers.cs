@@ -14,7 +14,7 @@ namespace BankAppYieldReturn
         public static string OmschrijvingHeader { get; } = "Omschrijving".PadRight(20);
         public static string SaldoTekstHeader { get; } = "Saldo".PadLeft(20);
 
-        public static string ShowHeadre()
+        public static string ShowHeader()
         {
             return Headers.DatumHeader + Headers.BedragHeader + Headers.Spatie + Headers.OmschrijvingHeader + Headers.SaldoTekstHeader;
         }
