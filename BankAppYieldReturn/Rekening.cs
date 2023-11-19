@@ -30,7 +30,6 @@ namespace BankAppYieldReturn
         {
             int i = 0;
             int vasteLengte = 20;
-            Console.WriteLine("Zonder Yield");
 
             decimal[] saldoArray = BerekenSaldo();
 
